@@ -25,10 +25,9 @@ import { Plus } from "lucide-react";
 import { Minus } from "lucide-react";
 import Recommend from "./Recommend";
 
+const { kakao } = window;
 
 const MapBase = () => {
-  const { kakao } = window;
-
   const [map, setMap] = useState(null);
   const mapInfo = useSelector((state) => state.currentState.mapInfo);
   const [infoOverlay, setInfoOverlay] = useState([]);
