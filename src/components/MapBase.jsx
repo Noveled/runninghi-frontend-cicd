@@ -69,23 +69,23 @@ const MapBase = () => {
     console.log('window: ', window);
 
     const mapOptions = {
-      center: new kakao.maps.LatLng(mapInfo.center["Ma"], mapInfo.center["La"]),
+      center: new window.maps.LatLng(mapInfo.center["Ma"], mapInfo.center["La"]),
       level: mapInfo.lv,
     };
 
-    const kakaoMap = new kakao.maps.Map(mapContainer, mapOptions);
+    const kakaoMap = new window.maps.Map(mapContainer, mapOptions);
     setMap(kakaoMap);
   }, []);
 
   useEffect(() => {
     const startSrc =
         "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png", // 유저 마커이미지의 주소입니다
-      startSize = new kakao.maps.Size(50, 45), // 유저 마커이미지의 크기입니다
+      startSize = new window.maps.Size(50, 45), // 유저 마커이미지의 크기입니다
       startOption = {
-        offset: new kakao.maps.Point(15, 43), // 유저 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+        offset: new window.maps.Point(15, 43), // 유저 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
       };
     // 유저 마커 이미지를 생성합니다
-    const userMarkerImage = new kakao.maps.MarkerImage(
+    const userMarkerImage = new window.maps.MarkerImage(
       startSrc,
       startSize,
       startOption
@@ -93,22 +93,22 @@ const MapBase = () => {
 
     const userMarkerDragSrc =
         "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_drag.png", // 유저 마커의 드래그 이미지 주소입니다
-      userMarkerSize = new kakao.maps.Size(50, 64), // 유저 마커의 드래그 이미지 크기입니다
+      userMarkerSize = new window.maps.Size(50, 64), // 유저 마커의 드래그 이미지 크기입니다
       userMarkerDragOption = {
-        offset: new kakao.maps.Point(15, 54), // 유저 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+        offset: new window.maps.Point(15, 54), // 유저 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
       };
 
     // 유저 마커의 드래그 이미지를 생성합니다
-    const userMarkerDragImage = new kakao.maps.MarkerImage(
+    const userMarkerDragImage = new window.maps.MarkerImage(
       userMarkerDragSrc,
       userMarkerSize,
       userMarkerDragOption
     );
 
     // 유저 마커를 생성합니다
-    const userMarker = new kakao.maps.Marker({
+    const userMarker = new window.maps.Marker({
       map: map, // 출발 마커가 지도 위에 표시되도록 설정합니다
-      position: new kakao.maps.LatLng(37.48071191757761, 126.88145603954914),
+      position: new window.maps.LatLng(37.48071191757761, 126.88145603954914),
       draggable: true, // 출발 마커가 드래그 가능하도록 설정합니다
       image: userMarkerImage, // 유저 마커이미지를 설정합니다
     });
@@ -116,13 +116,13 @@ const MapBase = () => {
     setUserMarker(userMarker);
 
     // 유저 마커에 dragstart 이벤트를 등록합니다
-    kakao.maps.event.addListener(userMarker, "dragstart", function () {
+    window.maps.event.addListener(userMarker, "dragstart", function () {
       // 유저 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
       userMarker.setImage(userMarkerDragImage);
     });
 
     // 유저 마커에 dragend 이벤트를 등록합니다
-    kakao.maps.event.addListener(userMarker, "dragend", function () {
+    window.maps.event.addListener(userMarker, "dragend", function () {
       // 출발 마커의 드래그가 종료될 때 마커 이미지를 원래 이미지로 변경합니다
       userMarker.setImage(userMarkerImage);
       // console.log('userMarker', userMarker['n']);
@@ -132,7 +132,7 @@ const MapBase = () => {
 
     // 마우스 드래그로 지도 이동이 완료되었을 때 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
     if (map) {
-      kakao.maps.event.addListener(map, "dragend", function () {
+      window.maps.event.addListener(map, "dragend", function () {
         // 지도 중심좌표를 얻어옵니다
         const latlng = map.getCenter();
         const mapLv = map.getLevel();
@@ -225,15 +225,15 @@ const MapBase = () => {
 
   // 마커이미지의 주소와, 크기, 옵션으로 마커 이미지를 생성하여 리턴하는 함수입니다
   const createMarkerImage = (src, size, options) => {
-    let markerImage = new kakao.maps.MarkerImage(src, size, options);
+    let markerImage = new window.maps.MarkerImage(src, size, options);
     return markerImage;
   };
 
   // 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수입니다
   const createMarker = (fac_data, image) => {
     // console.log(fac_data);
-    let marker = new kakao.maps.Marker({
-      position: new kakao.maps.LatLng(
+    let marker = new window.maps.Marker({
+      position: new window.maps.LatLng(
         fac_data["latitude"],
         fac_data["longitude"]
       ),
@@ -264,14 +264,14 @@ const MapBase = () => {
 
     // 마커 위에 커스텀오버레이를 표시합니다
     // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-    const overlay = new kakao.maps.CustomOverlay({
+    const overlay = new window.maps.CustomOverlay({
       content: content,
       map: map,
       position: marker.getPosition(),
     });
 
     // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-    kakao.maps.event.addListener(marker, "click", function () {
+    window.maps.event.addListener(marker, "click", function () {
       overlay.setMap(map);
     });
 
@@ -292,8 +292,8 @@ const MapBase = () => {
     const first_LatLng = course_data["waypoint"][0];
     // console.log(first_LatLng['Ma'], first_LatLng['La']);
 
-    let marker = new kakao.maps.Marker({
-      position: new kakao.maps.LatLng(first_LatLng["Ma"], first_LatLng["La"]),
+    let marker = new window.maps.Marker({
+      position: new window.maps.LatLng(first_LatLng["Ma"], first_LatLng["La"]),
       image: image,
     });
 
@@ -321,14 +321,14 @@ const MapBase = () => {
 
     // 마커 위에 커스텀오버레이를 표시합니다
     // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-    const overlay = new kakao.maps.CustomOverlay({
+    const overlay = new window.maps.CustomOverlay({
       content: content,
       map: map,
       position: marker.getPosition(),
     });
 
     // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-    kakao.maps.event.addListener(marker, "click", function () {
+    window.maps.event.addListener(marker, "click", function () {
       overlay.setMap(map);
     });
 
@@ -347,10 +347,10 @@ const MapBase = () => {
   const createBusstopMarkers = () => {
     setBusstopMarkers([]);
     for (let i = 0; i < stateBusStopData.length; i++) {
-      let imageSize = new kakao.maps.Size(22, 26),
+      let imageSize = new window.maps.Size(22, 26),
         imageOptions = {
-          spriteOrigin: new kakao.maps.Point(10, 0),
-          spriteSize: new kakao.maps.Size(36, 98),
+          spriteOrigin: new window.maps.Point(10, 0),
+          spriteSize: new window.maps.Size(36, 98),
         };
       // 마커이미지와 마커를 생성합니다
       let markerImage = createMarkerImage(
@@ -375,10 +375,10 @@ const MapBase = () => {
   const createWaterMarkers = () => {
     setWaterMarkers([]);
     for (let i = 0; i < stateWaterData.length; i++) {
-      let imageSize = new kakao.maps.Size(22, 26),
+      let imageSize = new window.maps.Size(22, 26),
         imageOptions = {
-          spriteOrigin: new kakao.maps.Point(10, 36),
-          spriteSize: new kakao.maps.Size(36, 98),
+          spriteOrigin: new window.maps.Point(10, 36),
+          spriteSize: new window.maps.Size(36, 98),
         };
 
       // 마커이미지와 마커를 생성합니다
@@ -404,10 +404,10 @@ const MapBase = () => {
   const createStorageMarkers = () => {
     setStorageMarkers([]);
     for (let i = 0; i < stateStorageData.length; i++) {
-      let imageSize = new kakao.maps.Size(22, 26),
+      let imageSize = new window.maps.Size(22, 26),
         imageOptions = {
-          spriteOrigin: new kakao.maps.Point(10, 72),
-          spriteSize: new kakao.maps.Size(36, 98),
+          spriteOrigin: new window.maps.Point(10, 72),
+          spriteSize: new window.maps.Size(36, 98),
         };
 
       // 마커이미지와 마커를 생성합니다
@@ -434,10 +434,10 @@ const MapBase = () => {
   const createFirstPointMarkers = () => {
     setFirstPointMarkers([]);
     for (let i = 0; i < stateCourseData.length; i++) {
-      let imageSize = new kakao.maps.Size(22, 26),
+      let imageSize = new window.maps.Size(22, 26),
         imageOptions = {
-          spriteOrigin: new kakao.maps.Point(10, 72),
-          spriteSize: new kakao.maps.Size(36, 98),
+          spriteOrigin: new window.maps.Point(10, 72),
+          spriteSize: new window.maps.Size(36, 98),
         };
 
       // 마커이미지와 마커를 생성합니다
