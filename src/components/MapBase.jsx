@@ -65,6 +65,9 @@ const MapBase = () => {
 
   useEffect(() => {
     const mapContainer = document.getElementById("map");
+    console.log('mapContainer :', mapContainer);
+    console.log('kakao :', kakao);
+
     const mapOptions = {
       center: new kakao.maps.LatLng(mapInfo.center["Ma"], mapInfo.center["La"]),
       level: mapInfo.lv,
