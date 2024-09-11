@@ -206,7 +206,7 @@ const PolyMap = () => {
     e.preventDefault();
 
     axios
-      .get('http://localhost:8080/get_course?isVisible=true')
+      .get('https://runninghibackend.siinat.com/get_course?isVisible=true')
       .then((res) => {
         // console.log(res);
         if (res.status === 200) {
@@ -241,7 +241,7 @@ const PolyMap = () => {
     }
 
     axios
-      .post('http://localhost:8080/make_course', values)
+      .post('https://runninghibackend.siinat.com/make_course', values)
       .then((res) => {
         console.log(res);
         if (res.status === 201) {
