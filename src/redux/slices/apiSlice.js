@@ -49,6 +49,9 @@ const deleteItemFetchThunk = (actionType, apiUrl) => {
 const updateViewcountFetchThunk = (actionType, apiUrl) => {
   return createAsyncThunk(actionType, async (options) => {
     console.log(options);
+    if (!options) {
+      return
+    }
     return await patchRequest(apiUrl, options);
   });
 };

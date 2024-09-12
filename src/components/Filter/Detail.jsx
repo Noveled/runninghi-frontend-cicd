@@ -40,9 +40,6 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    if (!viewData.user_id || !viewData.course_id){
-      return
-    }
     dispatch(fetchUpdateViewcount(options));
     // dispatch(fetchGet1courseData(detail.course_id));
   }, [dispatch, viewData]);
