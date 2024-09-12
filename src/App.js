@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // BrowserRouter를 HashRouter로 변경
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import Intro from "./components/Intro";
@@ -44,7 +44,7 @@ function App() {
           <Route path="/slider" element={<SliderTest />} />
         </Routes>
         <ToastContainer position="top-center" autoClose={1500} theme="light" />
-      </BrowserRouter> 
+      </BrowserRouter>
     </div>
   );
 }

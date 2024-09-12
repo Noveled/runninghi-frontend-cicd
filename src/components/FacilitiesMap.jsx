@@ -57,7 +57,7 @@ const FacilitiesMap = () => {
   }, [type])
 
   useEffect(() => {
-    axios.get('https://runninghibackend.siinat.com/get_facilities')
+    axios.get(`${process.env.REACT_APP_MY_DOMAIN}/get_facilities`)
     .then((res) => {
       // console.log(res);
       if (res.status === 200) {
