@@ -33,7 +33,7 @@ const Login = () => {
       return;
     }
     axios
-      .post("https://runninghibackend.siinat.com/login",  { withCredentials: true }, values)
+      .post("https://runninghibackend.siinat.com/login", values)
       .then((res) => {
         if (res.status === 201) {
           const decoded = jwtDecode(res.data.token);
