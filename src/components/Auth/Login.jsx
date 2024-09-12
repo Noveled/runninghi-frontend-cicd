@@ -69,7 +69,7 @@ const Login = () => {
 
   return (
     <div className="login h-[100vh] bg-gradient-to-b from-violet-400 to-purple-500 bg">
-      <AuthHeader title="로그인"></AuthHeader>
+      <AuthHeader title="로그인2"></AuthHeader>
       <form
         onSubmit={handleSubmit}
         className="w-full px-10 flex flex-col justify-between h-[35vh]"
@@ -80,7 +80,7 @@ const Login = () => {
           </label>
           <input
             type="text"
-            placeholder="아이디를 입력하세요"
+            placeholder="아이디를 입력하세요2"
             name="user_id"
             className="form-control"
             onChange={(e) => setValues({ ...values, user_id: e.target.value })}
@@ -93,7 +93,7 @@ const Login = () => {
           </label>
           <input
             type="password"
-            placeholder="비밀번호를 입력하세요"
+            placeholder="비밀번호를 입력하세요2"
             name="password"
             className="form-control"
             onChange={(e) => setValues({ ...values, password: e.target.value })}
