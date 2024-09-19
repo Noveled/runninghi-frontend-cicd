@@ -43,7 +43,7 @@ const Detail = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(viewData),
-  };
+  }; 
 
   useEffect(() => {
     dispatch(fetchUpdateViewcount(options));
