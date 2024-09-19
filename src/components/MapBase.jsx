@@ -25,8 +25,6 @@ import { Plus } from "lucide-react";
 import { Minus } from "lucide-react";
 import Recommend from "./Recommend";
 
-import { markerImageSrc } from "../assets/images/category.png"
-
 const { kakao } = window;
 
 const MapBase = () => {
@@ -38,7 +36,7 @@ const MapBase = () => {
   const [type, setType] = useState("all");
 
   let markerImageSrc =
-    "../assets/images/category.png"; // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
+    "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/category.png?raw=true"; // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
   const [busstopMarkers, setBusstopMarkers] = useState([]);
   const [waterMarkers, setWaterMarkers] = useState([]);
   const [storageMarkers, setStorageMarkers] = useState([]);
@@ -83,7 +81,7 @@ const MapBase = () => {
 
   useEffect(() => {
     const startSrc =
-        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png", // 유저 마커이미지의 주소입니다
+        "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/red_b.png?raw=true", // 유저 마커이미지의 주소입니다
       startSize = new kakao.maps.Size(50, 45), // 유저 마커이미지의 크기입니다
       startOption = {
         offset: new kakao.maps.Point(15, 43), // 유저 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
@@ -256,7 +254,7 @@ const MapBase = () => {
             </div>
             <div class="body"> 
                 <div class="img">
-                    <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/thumnail.png" width="73" height="70">
+                    <img src="https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/thumnail.png?raw=true" width="73" height="70">
                </div>
                 <div class="desc">
                     <div class="jibun ellipsis">${fac_data.location_detail}</div>
@@ -313,7 +311,7 @@ const MapBase = () => {
             </div>
             <div class="body"> 
                 <div class="img">
-                    <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/thumnail.png" width="73" height="70">
+                    <img src="https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/thumnail.png?raw=true" width="73" height="70">
                </div>
                 <div class="desc">
                     <div class="jibun ellipsis">${course_data.content}</div>
