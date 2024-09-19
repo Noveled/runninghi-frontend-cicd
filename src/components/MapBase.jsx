@@ -82,9 +82,9 @@ const MapBase = () => {
   useEffect(() => {
     const startSrc =
         "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/red_b.png?raw=true", // 유저 마커이미지의 주소입니다
-      startSize = new kakao.maps.Size(50, 45), // 유저 마커이미지의 크기입니다
+      startSize = new kakao.maps.Size(50, 50), // 유저 마커이미지의 크기입니다
       startOption = {
-        offset: new kakao.maps.Point(15, 43), // 유저 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+        offset: new kakao.maps.Point(0, 0), // 유저 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
       };
     // 유저 마커 이미지를 생성합니다
     const userMarkerImage = new kakao.maps.MarkerImage(
@@ -94,10 +94,10 @@ const MapBase = () => {
     );
 
     const userMarkerDragSrc =
-        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_drag.png", // 유저 마커의 드래그 이미지 주소입니다
-      userMarkerSize = new kakao.maps.Size(50, 64), // 유저 마커의 드래그 이미지 크기입니다
+        "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/red_b.png?raw=true", // 유저 마커의 드래그 이미지 주소입니다
+      userMarkerSize = new kakao.maps.Size(50, 50), // 유저 마커의 드래그 이미지 크기입니다
       userMarkerDragOption = {
-        offset: new kakao.maps.Point(15, 54), // 유저 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+        offset: new kakao.maps.Point(0, 0), // 유저 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
       };
 
     // 유저 마커의 드래그 이미지를 생성합니다
