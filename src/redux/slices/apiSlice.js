@@ -48,10 +48,6 @@ const deleteItemFetchThunk = (actionType, apiUrl) => {
 
 const updateViewcountFetchThunk = (actionType, apiUrl) => {
   return createAsyncThunk(actionType, async (options) => {
-    console.log(options);
-    if (!options) {
-      return
-    }
     return await patchRequest(apiUrl, options);
   });
 };
@@ -131,7 +127,7 @@ const handleFulfilled = (stateKey) => (state, action) => {
 };
 
 const handleRejected = (state, action) => {
-  console.log(action.payload);
+  // console.log(action.payload);
   state.isError = true;
 };
 

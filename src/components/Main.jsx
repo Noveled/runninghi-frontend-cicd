@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Recommend from "./Recommend";
 import FooterNaviBar from "./NaviBar/FooterNaviBar";
 import MapBase from "./MapBase";
+import SearchBar from "./SearchBar";
 
 const Main = () => {
   useEffect(() => {
@@ -28,8 +29,11 @@ const Main = () => {
   return (
     <div className="main relative w-full h-[100vh] overflow-hidden">
       <div className="h-[93vh]">
+        {/* 검색 영역 */}
+        <SearchBar />
+
         {/* 상단에 오늘의 추천 코스 보여주기 */}
-        {/* <Recommend></Recommend> */}
+        <Recommend />
         <div className="mapContainer overflow-hidden">
           <MapBase />
           {/* 

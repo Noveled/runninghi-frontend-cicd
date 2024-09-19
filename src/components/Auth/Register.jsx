@@ -8,6 +8,9 @@ import axios from "axios";
 import { fetchGetUsersData } from "../../redux/slices/usersSlice";
 import AuthHeader from "./AuthHeader";
 
+import { PencilLine } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
+
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -118,126 +121,128 @@ const Register = () => {
       });
   };
 
-  const cancelSignUp = () => {
+  const goBackFront = () => {
     navigate("/");
   };
+
   const login = () => {
     navigate("/login");
   };
 
   return (
-    <div className="register h-[100vh] bg-gradient-to-b from-violet-400 to-purple-500 bg">
-      <AuthHeader title="회원가입"></AuthHeader>
-      <div className="register-wrapper px-10 h-[70vh]">
-        <form
-          onSubmit={handleSubmit}
-          className="w-full h-full flex flex-col justify-between pb-10"
-        >
-          <div className="auth-form">
-            <div className="flex justify-between">
-              <label htmlFor="user_id" className="px-2">
-                <strong>id</strong>
-              </label>
-              <div
-                className="text-xs rounded bg-purple-200 px-4 cursor-pointer flex items-center"
-                onClick={id_check}
-              >
-                아이디 중복확인
+    <div className="register h-[100vh] bg-violet-100">
+      {/* <AuthHeader title="회원가입"></AuthHeader> */}
+      <ChevronLeft className="absolute w-10 h-10 top-4 text-[#777777]"
+      onClick={() => goBackFront()}/>
+      <div className="h-[100vh] flex flex-col justify-center gap-10">
+        <div className="flex justify-center items-center gap-4">
+          <span className="text-3xl font-bold text-[#7c5ecf]">크루 등록하기</span>
+        </div>
+        <div className="register-wrapper px-10 h-[70vh]">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full h-full flex flex-col justify-between pb-10"
+          >
+            <div className="auth-form">
+              <div className="flex justify-between">
+                <label htmlFor="user_id" className="px-2">
+                  <strong>아이디</strong>
+                </label>
+                <div
+                  className="text-xs rounded bg-purple-200 px-4 cursor-pointer flex items-center"
+                  onClick={id_check}
+                >
+                  아이디 중복확인
+                </div>
               </div>
-            </div>
-            <input
-              id="id"
-              type="text"
-              placeholder="아이디를 입력해주세요"
-              name="user_id"
-              className="form-control"
-              onChange={(e) =>
-                setValues({ ...values, user_id: e.target.value })
-              }
-            />
-          </div>
-
-          <div className="auth-form">
-            <label htmlFor="password" className="px-2">
-              <strong>Password</strong>
-            </label>
-            <input
-              type="password"
-              placeholder="비밀번호를 입력해주세요"
-              name="password"
-              className="form-control"
-              onChange={(e) =>
-                setValues({ ...values, password: e.target.value })
-              }
-            />
-          </div>
-
-          <div className="auth-form">
-            <label htmlFor="check-password" className="px-2">
-              <strong>Check password</strong>
-            </label>
-            <input
-              type="password"
-              placeholder="비밀번호 확인"
-              name="check-password"
-              className="form-control"
-              onChange={(e) => setValues({ ...values, ck_pw: e.target.value })}
-            />
-          </div>
-
-          <div className="auth-form">
-            <label htmlFor="user_email" className="px-2">
-              <strong>Email</strong>
-            </label>
-            <input
-              type="email"
-              placeholder="이메일을 입력해주세요"
-              name="user_email"
-              className="form-control"
-              onChange={(e) =>
-                setValues({ ...values, user_email: e.target.value })
-              }
-            />
-          </div>
-
-          <div className="auth-form">
-            <label htmlFor="user_name" className="px-2">
-              <strong>Nick Name</strong>
-            </label>
-            <input
-              type="user_name"
-              placeholder="닉네임을 입력해주세요"
-              name="user_name"
-              className="form-control"
-              onChange={(e) =>
-                setValues({ ...values, user_name: e.target.value })
-              }
-            />
-          </div>
-
-          <div className="flex justify-between gap-x-4 py-4">
-            <button
-              type="submit"
-              className="auth-btn text-sm bg-green-400 shadow text-white hover:font-bold"
-            >
-              가입하기
-            </button>
-
-            <div
-              className="auth-btn text-sm cursor-pointer bg-amber-400 text-slate-100 hover:font-bold"
-              onClick={login}
-            >
-              로그인
+              <input
+                id="id"
+                type="text"
+                placeholder="아이디를 입력해주세요"
+                name="user_id"
+                className="form-control"
+                onChange={(e) =>
+                  setValues({ ...values, user_id: e.target.value })
+                }
+              />
             </div>
 
-            <div
-              className="auth-btn text-sm cursor-pointer  bg-red-400 shadow text-white hover:font-bold"
-              onClick={cancelSignUp}
-            >
-              가입취소
+            <div className="auth-form">
+              <label htmlFor="password" className="px-2">
+                <strong>비밀번호</strong>
+              </label>
+              <input
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                name="password"
+                className="form-control"
+                onChange={(e) =>
+                  setValues({ ...values, password: e.target.value })
+                }
+              />
             </div>
-          </div>
-        </form>
+
+            <div className="auth-form">
+              <label htmlFor="check-password" className="px-2">
+                <strong>비밀번호 확인</strong>
+              </label>
+              <input
+                type="password"
+                placeholder="비밀번호 확인"
+                name="check-password"
+                className="form-control"
+                onChange={(e) => setValues({ ...values, ck_pw: e.target.value })}
+              />
+            </div>
+
+            <div className="auth-form">
+              <label htmlFor="user_email" className="px-2">
+                <strong>이메일</strong>
+              </label>
+              <input
+                type="email"
+                placeholder="이메일을 입력해주세요"
+                name="user_email"
+                className="form-control"
+                onChange={(e) =>
+                  setValues({ ...values, user_email: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="auth-form">
+              <label htmlFor="user_name" className="px-2">
+                <strong>닉네임</strong>
+              </label>
+              <input
+                type="user_name"
+                placeholder="닉네임을 입력해주세요"
+                name="user_name"
+                className="form-control"
+                onChange={(e) =>
+                  setValues({ ...values, user_name: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="flex justify-between gap-x-4 py-4">
+              <button
+                type="submit"
+                className="auth-btn text-sm bg-violet-600"
+              >
+                <span className="text-white font-semibold">등록하기</span>
+              </button>
+
+              <div
+                className="auth-btn text-sm cursor-pointer bg-violet-400 text-slate-100 hover:font-bold"
+                onClick={login}
+              >
+                로그인
+              </div>
+
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

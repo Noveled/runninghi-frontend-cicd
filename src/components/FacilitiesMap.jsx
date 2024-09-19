@@ -16,7 +16,7 @@ const FacilitiesMap = () => {
   const [storageDatas, setStorageDatas] = useState([]);
 
   let markerImageSrc =
-    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/category.png"; // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
+    "../assets/images/category.png"; // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
   const [busstopMarkers, setBusstopMarkers] = useState([]);
   const [waterMarkers, setWaterMarkers] = useState([]);
   const [storageMarkers, setStorageMarkers] = useState([]);
@@ -24,7 +24,7 @@ const FacilitiesMap = () => {
   useEffect(() => {
     const mapContainer = document.getElementById("map");
     const mapOptions = {
-      center: new kakao.maps.LatLng(37.498004414546934, 127.02770621963765), // 지도의 중심좌표
+      center: new kakao.maps.LatLng(37.4980044, 127.0277062), // 지도의 중심좌표
       level: 3, // 지도의 확대 레벨
     };
 
@@ -39,21 +39,21 @@ const FacilitiesMap = () => {
       printBusstopMarkers(map);
       printWaterMarkers(null);
       printStorageMarkers(null);
-      console.log("커피숍 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("커피숍 마커들만 지도에 표시하도록 설정합니다");
     } else if (type === "water") {
       // 편의점 카테고리가 클릭됐을 때
       // 편의점 마커들만 지도에 표시하도록 설정합니다
       printBusstopMarkers(null);
       printWaterMarkers(map);
       printStorageMarkers(null);
-      console.log("편의점 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("편의점 마커들만 지도에 표시하도록 설정합니다");
     } else if (type === "storage") {
       // 주차장 카테고리가 클릭됐을 때
       // 주차장 마커들만 지도에 표시하도록 설정합니다
       printBusstopMarkers(null);
       printWaterMarkers(null);
       printStorageMarkers(map);
-      console.log("주차장 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("주차장 마커들만 지도에 표시하도록 설정합니다");
     }
   }, [type]);
 
@@ -268,7 +268,7 @@ const FacilitiesMap = () => {
   // console.log(carparkMarkers);
   // console.log(storeMarkers);
   // console.log(type);
-  console.log(busstopMarkers);
+  // console.log(busstopMarkers);
 
   return (
     <div>

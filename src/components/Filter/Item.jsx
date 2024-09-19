@@ -1,8 +1,10 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import default_img from "../../assets/images/default_images.png";
 
 const Item = ({ item }) => {
+  // console.log('item', item);
   return (
     <div className="item w-full p-3 overflow-x-auto">
       <div className="rounded-lg p-3 border border-purple-400 w-full text-gray-700 shadow item-gradiant">
@@ -10,23 +12,21 @@ const Item = ({ item }) => {
           <div className="flex flex-col gap-y-1">
             <div className="h-[155px]">
               <img
-                src={item.img_url}
+                src={item.img_url || default_img}
                 alt="course_img"
                 className="object-cover w-full h-full"
               />
             </div>
-            <h5 className="truncate">제목: {item.course_name}</h5>
-            <p className="truncate text-[#888888]">내용: {item.content}</p>
-            <div className="flex justify-between gap-x-[0.25rem]">
-              <div className="text-xs truncate text-[#888888]">지역: {item.city}</div>
-              <div className="text-xs truncate text-[#888888]">거리: {item.distance}km</div>
+            <div className="flex truncate gap-2 items-baseline">
+              <h5 className="truncate font-semibold">{item.course_name}</h5>
+              <div className="text-xs text-[#888888] bottom-0">{item.city}</div>
             </div>
-            <div className="flex justify-between">
-              <div className="text-xs truncate text-[#888888]">작성자: {item.user_name}</div>
-              <div className="text-xs flex items-center gap-x-1 truncate text-[#888888]">
-                조회수: {item.viewcount}
-              </div>
+            <div className="flex gap-x-2 text-xs text-gray-700">
+              <span className="text-xs font-semibold">{item.user_name}</span>
+              <span className="text-[#cdcdcd]">/</span>
+              <span className="text-red-500 font-semibold">{item.distance}km</span>
             </div>
+            <p className="truncate text-gray-700">{item.content}</p>
           </div>
         </Link>
       </div>

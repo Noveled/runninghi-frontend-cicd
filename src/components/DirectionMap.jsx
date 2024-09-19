@@ -56,7 +56,7 @@ const DirectionMap = () => {
     const REST_API_KEY = {
       apiKey: process.env.REACT_APP_MAP_REST_KEY,
     };
-    console.log(REST_API_KEY);
+    // console.log(REST_API_KEY);
     // 호출방식의 URL을 입력합니다.
     const url = 'https://apis-navi.kakaomobility.com/v1/directions';
 
@@ -109,7 +109,7 @@ const DirectionMap = () => {
       }); 
       polyline.setMap(map);
       
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.error('Error:', error);
     }

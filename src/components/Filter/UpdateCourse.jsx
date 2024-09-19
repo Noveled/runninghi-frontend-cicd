@@ -116,7 +116,7 @@ const UpdateCourse = () => {
     const reader = new FileReader();
     reader.readAsDataURL(uploadFile);
     reader.onloadend = () => {
-      console.log("reader.result", reader.result);
+      // console.log("reader.result", reader.result);
       setUploadImgUrl(reader.result);
     };
 
@@ -380,14 +380,14 @@ const UpdateCourse = () => {
   };
 
   const toggleMakeCoursePop = () => {
-    console.log("isMakeCoursePop Click :", isMakeCoursePop);
+    // console.log("isMakeCoursePop Click :", isMakeCoursePop);
     setIsMakeCoursePop(!isMakeCoursePop);
   };
 
   const handleUpdateCourse = async (e) => {
     e.preventDefault();
     // console.log('userData.userInfo.user_table_idx', userData.userInfo.user_table_idx);
-    console.log("values", values);
+    // console.log("values", values);
 
     e.preventDefault();
 
@@ -413,7 +413,7 @@ const UpdateCourse = () => {
   };
 
   // console.log(values);
-  console.log(markers);
+  // console.log(markers);
 
   return (
     <div className="make-course relative">
@@ -443,20 +443,20 @@ const UpdateCourse = () => {
       <div className="absolute flex flex-col gap-1 top-20 right-3 z-10">
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedZoomIn ? "bg-gray-200" : "bg-white"
+            isClickedZoomIn ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => zoomIn()}
         >
-          <Plus className="h-[22px] w-[22px] text-[#c8b5fc]" />
+          <Plus className="h-[22px] w-[22px] text-[#7c5ecf]" />
         </button>
 
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedZoomOut ? "bg-gray-200" : "bg-white"
+            isClickedZoomOut ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => zoomOut()}
         >
-          <Minus className="h-[22px] w-[22px] text-[#c8b5fc]" />
+          <Minus className="h-[22px] w-[22px] text-[#7c5ecf]" />
         </button>
       </div>
 
@@ -465,21 +465,21 @@ const UpdateCourse = () => {
         {/* 마커 모두 지우기 */}
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedClearAll ? "bg-gray-200" : "bg-white"
+            isClickedClearAll ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => clearAllMarkers()}
         >
-          <RotateCcw className="h-[30px] w-[30px] text-[#c8b5fc]" />
+          <RotateCcw className="h-[30px] w-[30px] text-[#7c5ecf]" />
         </button>
 
         {/* 마커 하나 지우기 */}
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedClearLast ? "bg-gray-200" : "bg-white"
+            isClickedClearLast ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => deleteLastMarker()}
         >
-          <UndoDot className="h-[30px] w-[30px] text-[#c8b5fc]" />
+          <UndoDot className="h-[30px] w-[30px] text-[#7c5ecf]" />
         </button>
       </div>
 

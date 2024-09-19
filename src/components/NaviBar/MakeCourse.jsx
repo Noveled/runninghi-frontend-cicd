@@ -17,6 +17,7 @@ import {
   X,
   RotateCcw,
   UndoDot,
+  Pin,
 } from "lucide-react";
 
 import baseimg from "../../assets/images/baseimg.png";
@@ -71,7 +72,7 @@ const MakeCourse = () => {
     const reader = new FileReader();
     reader.readAsDataURL(uploadFile);
     reader.onloadend = () => {
-      console.log("reader.result", reader.result);
+      // console.log("reader.result", reader.result);
       setUploadImgUrl(reader.result);
     };
 
@@ -174,7 +175,7 @@ const MakeCourse = () => {
     // console.log(mapInfo.lv);
     const mapContainer = document.getElementById("map");
     const mapOptions = {
-      center: new kakao.maps.LatLng(mapInfo.center["Ma"], mapInfo.center["La"]),
+      center: new kakao.maps.LatLng(mapInfo.ma, mapInfo.la),
       level: mapInfo.lv,
     };
 
@@ -227,7 +228,7 @@ const MakeCourse = () => {
         // 지도 중심좌표를 얻어옵니다
         const latlng = map.getCenter();
         const mapLv = map.getLevel();
-        dispatch(changeMapInfo({ center: latlng, lv: mapLv }));
+        dispatch(changeMapInfo({ la: latlng["La"], ma: latlng["Ma"], lv: mapLv }));
       });
     }
   }, [map]);
@@ -368,13 +369,13 @@ const MakeCourse = () => {
   };
 
   const toggleMakeCoursePop = () => {
-    console.log("isMakeCoursePop Click :", isMakeCoursePop);
+    // console.log("isMakeCoursePop Click :", isMakeCoursePop);
     setIsMakeCoursePop(!isMakeCoursePop);
   };
   const handlePostCourse = (e) => {
     e.preventDefault();
     // console.log('userData.userInfo.user_table_idx', userData.userInfo.user_table_idx);
-    console.log("values", values);
+    // console.log("values", values);
 
     e.preventDefault();
 
@@ -390,9 +391,9 @@ const MakeCourse = () => {
     axios
       .post(`${process.env.REACT_APP_MY_DOMAIN}/make_course`, values)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 201) {
-          console.log(res);
+          // console.log(res);
 
           // 값 초기화
           setValues({
@@ -438,7 +439,8 @@ const MakeCourse = () => {
         </Link>
         <div className="relative w-full">
           <div className="absolute border border-[#7c5ecf] flex gap-2 bg-white rounded-3xl p-1 -left-2 bottom-6">
-            <PenLine className="text-[#7c5ecf] w-3 h-3" />
+            
+            {isMakeCoursePop ? <PenLine className="text-[#7c5ecf] w-3 h-3" /> : <Pin  className="text-[#7c5ecf] w-3 h-3" />}
             <span className=" text-[#7c5ecf] px-1 mr-2 font-semibold text-[8px]">
               {isMakeCoursePop ? <span>STEP 2</span> : <span>STEP 1</span>}
             </span>
@@ -457,20 +459,20 @@ const MakeCourse = () => {
       <div className="absolute flex flex-col gap-1 top-20 right-3 z-10">
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedZoomIn ? "bg-gray-200" : "bg-white"
+            isClickedZoomIn ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => zoomIn()}
         >
-          <Plus className="h-[22px] w-[22px] text-[#c8b5fc]" />
+          <Plus className="h-[22px] w-[22px] text-[#7c5ecf]" />
         </button>
 
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedZoomOut ? "bg-gray-200" : "bg-white"
+            isClickedZoomOut ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => zoomOut()}
         >
-          <Minus className="h-[22px] w-[22px] text-[#c8b5fc]" />
+          <Minus className="h-[22px] w-[22px] text-[#7c5ecf]" />
         </button>
       </div>
 
@@ -479,21 +481,21 @@ const MakeCourse = () => {
         {/* 마커 모두 지우기 */}
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedClearAll ? "bg-gray-200" : "bg-white"
+            isClickedClearAll ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => clearAllMarkers()}
         >
-          <RotateCcw className="h-[30px] w-[30px] text-[#c8b5fc]" />
+          <RotateCcw className="h-[30px] w-[30px] p-[2px] text-[#7c5ecf]" />
         </button>
 
         {/* 마커 하나 지우기 */}
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedClearLast ? "bg-gray-200" : "bg-white"
+            isClickedClearLast ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => deleteLastMarker()}
         >
-          <UndoDot className="h-[30px] w-[30px] text-[#c8b5fc]" />
+          <UndoDot className="h-[30px] w-[30px] p-[2px] text-[#7c5ecf]" />
         </button>
       </div>
 

@@ -8,7 +8,7 @@ const initialState = {
     : { title: "주변", }, 
   mapInfo: Cookies.get('mapInfo')
     ? JSON.parse(Cookies.get('mapInfo')) 
-    : { center: {"La": 126.88632837397479, "Ma": 37.47362576352418}, 
+    : { la: 126.8814897, ma: 37.4808651, 
     lv: 3 }, 
 
   isError: false,

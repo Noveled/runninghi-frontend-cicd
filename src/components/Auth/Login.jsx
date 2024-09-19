@@ -11,6 +11,8 @@ import axios from "axios";
 import { login } from "../../redux/slices/authSlice";
 import { updateUserInfo } from "../../redux/slices/userInfoSlice";
 
+import { ChevronLeft } from 'lucide-react';
+
 const Login = () => {
   const [values, setValues] = useState({
     user_id: null,
@@ -44,7 +46,7 @@ const Login = () => {
             .get(`${process.env.REACT_APP_MY_DOMAIN}/get_user/${decoded["name"]}`)
             .then((res) => {
               if (res.status === 200) {
-                console.log("res.data", res.data[0]);
+                // console.log("res.data", res.data[0]);
                 dispatch(updateUserInfo(res.data[0]));
               } else {
                 toast.error("유저 정보 업데이트 실패");
@@ -63,60 +65,72 @@ const Login = () => {
       });
   };
 
+  const goBackFront = () => {
+    navigate("/");
+  };
+
   const signUp = () => {
     navigate("/register");
   };
 
   return (
-    <div className="login h-[100vh] bg-gradient-to-b from-violet-400 to-purple-500 bg">
-      <AuthHeader title="로그인"></AuthHeader>
-      <form
-        onSubmit={handleSubmit}
-        className="w-full px-10 flex flex-col justify-between h-[35vh]"
-      >
-        <div className="auth-form">
-          <label htmlFor="user_id" className="px-2">
-            <strong>id</strong>
-          </label>
-          <input
-            type="text"
-            placeholder="아이디를 입력하세요"
-            name="user_id"
-            className="form-control"
-            onChange={(e) => setValues({ ...values, user_id: e.target.value })}
-          />
+    <div className="login h-[100vh] bg-violet-100">
+      {/* <AuthHeader title="로그인"></AuthHeader> */}
+      <ChevronLeft className="absolute w-10 h-10 top-4 text-[#777777]"
+      onClick={() => goBackFront()}/>
+      <div className="h-[100vh] flex flex-col justify-center gap-10">
+        <div className="flex flex-col items-center gap-[2px]">
+          <span className="text-3xl font-bold text-[#7c5ecf]">Running Hi</span>
+          <span className="font-semibold">나만의 코스를 만들고, 경험을 공유하다.</span>
         </div>
-
-        <div className="auth-form">
-          <label htmlFor="password" className="px-2">
-            <strong>Password</strong>
-          </label>
-          <input
-            type="password"
-            placeholder="비밀번호를 입력하세요"
-            name="password"
-            className="form-control"
-            onChange={(e) => setValues({ ...values, password: e.target.value })}
-          />
-        </div>
-        <div className="flex flex-col gap-4 py-4">
-          <button
-            type="submit"
-            className="auth-btn bg-[#B3E0FF] hover:bg-gradient-to-b from-sky-200 to-sky-300"
-          >
-            Sign In
-          </button>
-          <div
-            className="auth-btn cursor-pointer bg-[#F5A3B1] hover:bg-gradient-to-b from-pink-200 to-pink-300"
-            onClick={signUp}
-          >
-            Create Account
+        <form
+          onSubmit={handleSubmit}
+          className="w-full px-10 flex flex-col justify-between h-[35vh]"
+        >
+          <div className="auth-form">
+            <label htmlFor="user_id" className="px-2">
+              <strong>아이디</strong>
+            </label>
+            <input
+              type="text"
+              placeholder="아이디를 입력하세요"
+              name="user_id"
+              className="form-control"
+              onChange={(e) => setValues({ ...values, user_id: e.target.value })}
+            />
           </div>
-        </div>
-      </form>
-      <div className="h-[35vh] pb-10 flex justify-center items-center">
-        <GiRunningShoe className="w-[50%] h-[50%] text-purple-50" />
+
+          <div className="auth-form">
+            <label htmlFor="password" className="px-2">
+              <strong>비밀번호</strong>
+            </label>
+            <input
+              type="password"
+              placeholder="비밀번호를 입력하세요"
+              name="password"
+              className="form-control"
+              onChange={(e) => setValues({ ...values, password: e.target.value })}
+            />
+          </div>
+          <div className="flex flex-col gap-4 py-4">
+            <button
+              type="submit"
+              className="auth-btn bg-violet-600"
+            >
+              <span className="text-white font-semibold">로그인</span>
+            </button>
+            <div
+              className="auth-btn cursor-pointer bg-violet-400"
+              onClick={signUp}
+            >
+              <span className="text-[#111111] font-semibold">크루 등록하기</span>
+            </div>
+          </div>
+        </form>
       </div>
+      {/* <div className="h-[35vh] pb-10 flex justify-center items-center">
+        <GiRunningShoe className="w-[50%] h-[50%] text-purple-50" />
+      </div> */}
     </div>
   );
 };

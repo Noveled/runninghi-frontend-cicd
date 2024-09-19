@@ -10,6 +10,8 @@ import { fetchGetUsersData } from "../../redux/slices/usersSlice";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+import defaultImgUrl from "../../assets/images/default_images.png";
+
 const Like = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -37,22 +39,14 @@ const Like = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className="my-course bg-violet-50">
-      <div className="grid grid-cols-2 w-full">
-        {loading ? (
-          <SkeletonTheme baseColor="#ddd6fe" highlightColor="#c4b5fd">
-            <ItemLoadingSkeleton></ItemLoadingSkeleton>
-            <ItemLoadingSkeleton></ItemLoadingSkeleton>
-            <ItemLoadingSkeleton></ItemLoadingSkeleton>
-            <ItemLoadingSkeleton></ItemLoadingSkeleton>
-          </SkeletonTheme>
-        ) : (
-          myCourse
-            ?.filter((item) => item.is_visible === true)
-            ?.map((item, idx) => <Item key={idx} item={item}></Item>)
-        )}
-        {}
-      </div>
+    <div className="w-full my-course bg-violet-50 p-4">
+      <img
+          className="w-full h-[240px] border border-gray-[#888888] rounded-md overflow-hidden object-fill"
+          src={defaultImgUrl}
+          alt="Sorry..."
+          img="img"
+        />
+      <p className="pt-2">즐겨찾기 기능은 구현중에 있습니다.</p>
     </div>
   );
 };

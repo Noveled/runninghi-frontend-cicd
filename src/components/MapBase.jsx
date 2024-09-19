@@ -25,6 +25,8 @@ import { Plus } from "lucide-react";
 import { Minus } from "lucide-react";
 import Recommend from "./Recommend";
 
+import { markerImageSrc } from "../assets/images/category.png"
+
 const { kakao } = window;
 
 const MapBase = () => {
@@ -36,7 +38,7 @@ const MapBase = () => {
   const [type, setType] = useState("all");
 
   let markerImageSrc =
-    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/category.png"; // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
+    "../assets/images/category.png"; // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
   const [busstopMarkers, setBusstopMarkers] = useState([]);
   const [waterMarkers, setWaterMarkers] = useState([]);
   const [storageMarkers, setStorageMarkers] = useState([]);
@@ -65,12 +67,13 @@ const MapBase = () => {
 
   useEffect(() => {
     const mapContainer = document.getElementById("map");
-    console.log('mapContainer :', mapContainer);
-    console.log('kakao :', kakao);
-    console.log('window: ', window);
+    // console.log('mapContainer :', mapContainer);
+    // console.log('kakao :', kakao);
+    // console.log('window: ', window);
 
+    // console.log('mapInfo', mapInfo);
     const mapOptions = {
-      center: new kakao.maps.LatLng(mapInfo.center["Ma"], mapInfo.center["La"]),
+      center: new kakao.maps.LatLng(mapInfo.ma, mapInfo.la),
       level: mapInfo.lv,
     };
 
@@ -137,7 +140,7 @@ const MapBase = () => {
         // 지도 중심좌표를 얻어옵니다
         const latlng = map.getCenter();
         const mapLv = map.getLevel();
-        dispatch(changeMapInfo({ center: latlng, lv: mapLv }));
+        dispatch(changeMapInfo({ la: latlng["La"], ma: latlng["Ma"], lv: mapLv }));
       });
     }
   }, [map]);
@@ -156,7 +159,7 @@ const MapBase = () => {
       printWaterMarkers(null);
       printStorageMarkers(null);
       printFirstPointMarkers(null);
-      console.log("버스정류장 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("버스정류장 마커들만 지도에 표시하도록 설정합니다");
     } else if (type === "water") {
       // 공원음수대 카테고리가 클릭됐을 때
       // 공원음수대 마커들만 지도에 표시하도록 설정합니다
@@ -164,7 +167,7 @@ const MapBase = () => {
       printWaterMarkers(map);
       printStorageMarkers(null);
       printFirstPointMarkers(null);
-      console.log("공원음수대 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("공원음수대 마커들만 지도에 표시하도록 설정합니다");
     } else if (type === "storage") {
       // 물품보관함 카테고리가 클릭됐을 때
       // 물품보관함 마커들만 지도에 표시하도록 설정합니다
@@ -172,19 +175,19 @@ const MapBase = () => {
       printWaterMarkers(null);
       printStorageMarkers(map);
       printFirstPointMarkers(null);
-      console.log("물품보관함 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("물품보관함 마커들만 지도에 표시하도록 설정합니다");
     } else if (type === "point") {
       printBusstopMarkers(null);
       printWaterMarkers(null);
       printStorageMarkers(null);
       printFirstPointMarkers(map);
-      console.log("출발지 마커들만 지도에 표시하도록 설정합니다");
+      // console.log("출발지 마커들만 지도에 표시하도록 설정합니다");
     } else if (type === "clear") {
       printBusstopMarkers(null);
       printWaterMarkers(null);
       printStorageMarkers(null);
       printFirstPointMarkers(null);
-      console.log("화면의 마커들 정리");
+      // console.log("화면의 마커들 정리");
     }
   }, [type]);
 
@@ -515,9 +518,6 @@ const MapBase = () => {
         style={{ width: "400px", height: "900px" }}
       />
 
-      {/* 이벤트 배너 */}
-      <Recommend />
-
       {/* 내 위치로 이동 */}
       <div className="absolute bottom-24 left-[14px] z-10">
         <button onClick={() => panToUser()}>
@@ -551,28 +551,28 @@ const MapBase = () => {
       </a>
 
       {/* 줌 인아웃 */}
-      <div className="absolute flex flex-col gap-1 top-20 right-3 z-10">
+      <div className="absolute flex flex-col gap-1 bottom-24 right-3 z-10">
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedZoomIn ? "bg-gray-200" : "bg-white"
+            isClickedZoomIn ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => zoomIn()}
         >
-          <Plus className="h-[22px] w-[22px] text-[#c8b5fc]" />
+          <Plus className="h-[22px] w-[22px] text-[#7c5ecf]" />
         </button>
 
         <button
           className={`border border-gray-200 rounded-full p-1 shadow-lg transition-colors duration-200 ${
-            isClickedZoomOut ? "bg-gray-200" : "bg-white"
+            isClickedZoomOut ? "bg-violet-200" : "bg-white"
           }`}
           onClick={() => zoomOut()}
         >
-          <Minus className="h-[22px] w-[22px] text-[#c8b5fc]" />
+          <Minus className="h-[22px] w-[22px] text-[#7c5ecf]" />
         </button>
       </div>
 
       {/* 카테고리 슬라이더 */}
-      <div className="absolute top-8 z-10 w-[390px] text-[12px] font-semibold text-[#232323]">
+      <div className="absolute top-20 z-10 w-[390px] left-1 text-[12px] font-semibold text-[#232323]">
         <Slider {...settings}>
           <div className="mx-[2px]">
             <button

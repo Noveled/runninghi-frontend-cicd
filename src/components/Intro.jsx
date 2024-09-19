@@ -4,10 +4,11 @@ import Slider from "react-slick";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { Feather, KeyRound } from 'lucide-react';
 import { FaWalking } from "react-icons/fa";
 
 import intro1 from "../assets/images/intro1.png";
-import intro2 from "../assets/images/intro2.png";
+// import intro2 from "../assets/images/intro2.png";
 import intro3 from "../assets/images/intro3.png";
 import intro4 from "../assets/images/intro4.png";
 
@@ -18,7 +19,7 @@ const Intro = () => {
   const authData = useSelector((state) => state.auth.authData);
   var settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -40,6 +41,13 @@ const Intro = () => {
                     className="h-[870px] object-cover"
                   />
                 </div>
+                {/* <div>
+                  <img
+                    src={intro2}
+                    alt="소개페이지 2"
+                    className="h-[870px] object-cover"
+                  />
+                </div> */}
                 <div>
                   <img
                     src={intro3}
@@ -54,21 +62,32 @@ const Intro = () => {
                     className="h-[870px] object-cover"
                   />
                 </div>
+               
                 <div className="p-4 h-[100vh]">
-                  <div className="flex flex-col justify-around h-full">
-                    <div className="flex justify-center text-purple-700 font-bold text-xl">
-                      로그인 또는 회원가입을 해주세요
+                  <div className="flex h-[100vh] flex-col justify-around items-center gap-2">
+                    <div className="flex flex-col items-center gap-2">
+                      <Feather className="h-[120px] w-[120px] text-[#7c5ecf]" />
+                      <div className="flex flex-col items-center gap-[2px]">
+                        <span className="text-3xl font-bold">러닝을 <span className="text-[#7c5ecf]">공유</span>하다</span>
+                        <span>- Running Hi -</span>
+                      </div>
                     </div>
-                    <div>
-                      <FaWalking className="w-full h-full text-purple-500" />
-                    </div>
-                    <div className="flex flex-col gap-y-4 font-bold _text-gray-700">
-                      <button className="w-full py-4 bg-[#B3E0FF] hover:bg-gradient-to-b from-sky-200 to-sky-300 bg rounded-xl">
-                        <Link to="/login">로그인</Link>
-                      </button>
-                      <button className="w-full py-4 bg-[#F5A3B1] hover:bg-gradient-to-b from-pink-200 to-pink-300 rounded-xl">
-                        <Link to="/register">회원가입</Link>
-                      </button>
+                    <div className="w-4/5 flex flex-col gap-y-4 font-bold">
+                      <Link to="/login">
+                        <span className="flex gap-2 justify-center w-full py-4 bg-violet-600 rounded-xl">
+                          <KeyRound className="text-white" />
+                          <span className="text-white">로그인</span>
+                        </span>
+                      </Link>
+                      <Link to="/register">
+                        <span className="flex gap-2 justify-center w-full py-4 bg-violet-400 rounded-xl">
+                          <KeyRound className="text-white" />
+                          <span className="text-white">크루 등록하기</span>
+                        </span>
+                      </Link>
+                      <div className="flex justify-center">
+                        <span className="text-sm">문제가 있나요?<a className="text-gray-400"> 고객센터</a></span>
+                      </div>
                     </div>
                   </div>
                 </div>

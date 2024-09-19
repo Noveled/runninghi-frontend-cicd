@@ -31,6 +31,12 @@ const Detail = () => {
     course_id: detail.course_id,
   };
 
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   const options = {
     method: "PATCH",
     headers: {
@@ -171,53 +177,69 @@ const Detail = () => {
 
         <div className="fixed bottom-0 left-0 w-full h-[50vh] bg-white pt-3 px-3 pb-8 text-gray-800 rounded-t-xl shadow-[0_-1px_6px_5px_rgba(0,0,0,0.2)] z-10">
           <div className=" flex flex-col gap-4 h-full text-base">
-            <div className=" flex flex-col justify-between w-full">
-              <h5 className="text-[#111111] font-bold p-4">
-                제목: {detail.course_name}
-              </h5>
-              <hr className="bg-[#7c5ecf] h-[2px]" />
+            <div className="flex justify-center w-full">
+              <hr className="w-[30px] h-[6px] bg-purple-400 rounded-3xl" />
             </div>
 
             <div className="overflow-y-scroll pb-12">
-              <div className="grid grid-cols-2 gap-x-2 pb-4">
-                <div className="flex flex-col justify-between text-sm h-[183px]">
-                  <div className="flex items-center gap-x-2">
-                    <GiDiamonds className="w-4 h-4 text-yellow-500" />
-                    <span className="text-[#888888]">
-                      작성자: {detail.user_name}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-x-2">
-                    <GiDiamonds className="w-4 h-4 text-yellow-500" />
-                    <span className="text-[#888888]">
-                      조회수: {detail.viewcount}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-x-2">
-                    <GiDiamonds className="w-4 h-4 text-yellow-500" />
-                    <span className="text-[#888888]">
-                      거리: {detail.distance}km
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-x-2">
-                    <GiDiamonds className="w-4 h-4 text-yellow-500" />
-                    <span className="text-[#888888]">
-                      지역구: {detail.city}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="w-full h-[183px]">
+              <div className="grid grid-cols-[1fr_2fr] gap-x-2 pb-4">
+                <div className="w-full h-[143px]">
                   <img
                     src={detail.img_url}
                     alt="코스 이미지"
                     className="w-full h-full border border-gray-[#888888] rounded-md object-cover"
                   />
                 </div>
+
+                <div className="flex flex-col justify-between text-base h-[143px] p-2">
+                  <h5 className="text-[#111111] truncate text-lg font-semibold ">
+                    {detail.course_name}
+                  </h5>
+                  <div className="flex items-center gap-x-2">
+                    <span className="text-[#111111] font-semibold">
+                      작성자
+                    </span>
+                    <span className="text-purple-500 font-semibold">
+                      {detail.user_name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-x-2">
+                    <span className="text-[#111111] font-semibold">
+                      지역 
+                    </span>
+                    <span className="text-[#111111]">
+                      {detail.city}
+                    </span>
+                    <span className="text-[#888888] text-sm"> | </span>
+                    <span className="text-[#111111] font-semibold">
+                      조회
+                    </span>
+                    <span className="text-[#111111]">{detail.viewcount}</span>
+                  </div>
+                  <div className="flex items-center gap-x-2">
+                    <span className="text-[#111111] font-semibold">
+                      거리 
+                    </span>
+                    <span className="">{detail.distance}<span>km</span></span>
+                  </div>
+                </div>
               </div>
 
               <div className="p-3 bg-purple-200 rounded-md h-fit text-[#888888] break-words">
-                <p className="indent-4 h-full">{detail.content}</p>
+                <p
+                  className={`h-full ${
+                    isExpanded ? "" : "line-clamp-1"
+                  } transition-all duration-300`}
+                >
+                  {detail.content}
+                </p>
+
+                <button
+                  className="text-blue-500 mt-2 text-sm"
+                  onClick={handleToggleExpand}
+                >
+                  {isExpanded ? "-간략히" : "+더보기"}
+                </button>
               </div>
             </div>
           </div>

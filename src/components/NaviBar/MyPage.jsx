@@ -23,7 +23,7 @@ const MyPage = () => {
   const dispatch = useDispatch();
 
   const userData = useSelector((state) => state.userInfoState);
-  console.log(userData);
+  // console.log(userData);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -32,6 +32,7 @@ const MyPage = () => {
 
   const handleback = () => {
     window.history.back();
+    
   };
 
   return (

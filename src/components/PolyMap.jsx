@@ -243,9 +243,9 @@ const PolyMap = () => {
     axios
       .post(`${process.env.REACT_APP_MY_DOMAIN}/make_course`, values)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 201) {
-          console.log(res);
+          // console.log(res);
           alert("코스등록이 완료되었습니다.");
         } else {
           alert("코스등록에 실패했습니다.");

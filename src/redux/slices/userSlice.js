@@ -21,7 +21,7 @@ const handleFulfilled = (stateKey) => (state, action) => {
 };
 
 const handleRejected = (state, action) => {
-  console.log(action.payload);
+  // console.log(action.payload);
   state.isError = true;
 };
 

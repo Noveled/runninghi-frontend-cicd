@@ -12,6 +12,9 @@ import { fetchGetUsersData } from "../../redux/slices/usersSlice";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+import { Footprints, MapPinned, Map, LandPlot, Navigation  } from 'lucide-react';
+import { Magnet } from 'lucide-react';
+
 const Category = ({ title }) => {
   const dispatch = useDispatch();
 
@@ -110,9 +113,17 @@ const Category = ({ title }) => {
   return (
     <div className="search-items">
       <div className="flex justify-center items-center relative">
-        <h4 className="search-title">{title}</h4>
+        <h4 className="search-title flex gap-2">
+          {title === "근처 추천 코스" && (<MapPinned ></MapPinned>)}
+          {title === "지역 추천 코스" && (<Map ></Map>)}
+          {title === "산책 추천 코스" && (<Footprints></Footprints>)}
+          {title === "마라톤 추천 코스" && (<Navigation ></Navigation>)}
+          {title === "거리별 코스" && (<LandPlot ></LandPlot>)}
+
+          {title}
+        </h4>
         {title === "지역 추천 코스" && (
-          <div className="absolute left-2/3 flex justify-center">
+          <div className="ml-10 flex justify-center">
             <Select
               options={ct_options}
               styles={{

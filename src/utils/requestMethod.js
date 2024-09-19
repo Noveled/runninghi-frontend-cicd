@@ -31,7 +31,7 @@ export async function patchRequest(url, options) {
 
 /* ====== Common Put Request Function ====== */
 export async function putRequest(url, options) {
-  console.log(url);
+  // console.log(url);
   const defaultOptions = {
     method: "PUT",
     headers: {
