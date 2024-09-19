@@ -45,9 +45,9 @@ const MakeCourse = () => {
   //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6HV-Q89MQyGPRXVkF-O4g9UGALROyOxwcRKoUFjaDTwS6hKsRZ3OqhkDBaYNa2ObR9E&usqp=CAU"; // 기본 이미지 URL
   // 마커 이미지
   const startSrc =
-    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png";
+    "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/markerStart.png?raw=true";
   const imageSrc =
-    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+    "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/markerPoint.png?raw=true";
   const imageSize = new kakao.maps.Size(32, 34); // 마커이미지의 크기입니다
   const imageOption = { offset: new kakao.maps.Point(18, 32) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 

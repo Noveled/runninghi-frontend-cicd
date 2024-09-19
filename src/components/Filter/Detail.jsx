@@ -52,12 +52,12 @@ const Detail = () => {
 
   const markerImages = {
     start: new kakao.maps.MarkerImage(
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png",
+      "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/markerStart.png?raw=true",
       new kakao.maps.Size(32, 34),
       { offset: new kakao.maps.Point(18, 32) }
     ),
     waypoint: new kakao.maps.MarkerImage(
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+      "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/markerPoint.png?raw=true",
       new kakao.maps.Size(32, 34),
       { offset: new kakao.maps.Point(18, 32) }
     ),
