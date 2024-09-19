@@ -53,13 +53,13 @@ const Detail = () => {
   const markerImages = {
     start: new kakao.maps.MarkerImage(
       "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/markerStart.png?raw=true",
-      new kakao.maps.Size(32, 34),
-      { offset: new kakao.maps.Point(18, 32) }
+      new kakao.maps.Size(32, 32),
+      { offset: new kakao.maps.Point(32, 32) }
     ),
     waypoint: new kakao.maps.MarkerImage(
       "https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/markerPoint.png?raw=true",
-      new kakao.maps.Size(32, 34),
-      { offset: new kakao.maps.Point(18, 32) }
+      new kakao.maps.Size(32, 32),
+      { offset: new kakao.maps.Point(32, 32) }
     ),
   };
 
