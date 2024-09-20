@@ -51,6 +51,10 @@ https://github.com/user-attachments/assets/b0589d2b-3431-4736-846e-cd77446f92f5
 
 - **Demo Link**: [RunningHi Frontend](https://runningfront.siinat.com/)
 **아이폰 12 pro 디바이스 화면을 기준으로 제작되었습니다. 크롬 설정창을 이용해 설정을 바꿔주세요!**
+- **Architecture**:
+![프론트엔드 아키텍처](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/frontend_architecture.PNG)
+위 그림은 프론트엔드의 전체적인 구조를 보여주며, 배포와 CI/CD 기능까지 포함된 FrontEnd 아키텍처를 나타냅니다.
+
 ---
 
 ## 기능 설명
@@ -64,7 +68,7 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 ---
 
 ## 주요 기능 설명
-|![코스 등록 화면](https://github.com/user-attachments/assets/56a57ca7-08c4-4c03-946d-18a4f052834b)|![코스정보 수정 화면](https://github.com/user-attachments/assets/31a9302d-cf67-4f6c-86a4-9b6bdecf26c3)|
+|![코스 등록 화면]( https://github.com/user-attachments/assets/56a57ca7-08c4-4c03-946d-18a4f052834b )|![코스정보 수정 화면]( https://github.com/user-attachments/assets/31a9302d-cf67-4f6c-86a4-9b6bdecf26c3 )|
 |:---:|:---:|
 |**코스 등록 화면**|**코스정보 수정 화면**|
 
@@ -74,22 +78,25 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 
 ## 편의시설 검색 및 필터링
 https://github.com/user-attachments/assets/be17ebb1-8e54-4bc5-8fc6-de62580d6cfb
+
 주변 편의시설을 지도에서 조회하고, 필터링 기능을 통해 원하는 시설을 검색할 수 있습니다.
 
 - **버튼 클릭시 애니메이션** : 모바일기기 특성 상 호버 액션을 사용할 수 없어서 클릭 효과를 주기 위해 애니메이션을 추가하였습니다.
-|https://github.com/user-attachments/assets/1c1fb456-e88e-4f08-831d-68568ceed4bc|https://github.com/user-attachments/assets/92d2dfa7-369e-486b-9f4a-9f37a8231939|
+| https://github.com/user-attachments/assets/1c1fb456-e88e-4f08-831d-68568ceed4bc | https://github.com/user-attachments/assets/92d2dfa7-369e-486b-9f4a-9f37a8231939 |
 |:---:|:---:|
 |**네비게이션 바 애니메이션**|**버튼 클릭 애니메이션**|
 
 ---
 
 ## CI/CD 플로우 차트
+프론트엔드 CI/CD 플로우는 다음과 같습니다:
 
-|![CI/CD Flowchart](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/rinninghi_cicd01.PNG)|![CI/CD Flowchart 2](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/rinninghi_cicd02.PNG)|
-|:---:|:---:|
-|**CI/CD Flowchart**|**CI/CD Flowchart 2**|
-
-GitHub Actions와 AWS EC2를 사용하여 CI/CD를 관리하며, 자동 배포 및 테스트를 수행합니다. 자세한 과정은 [신나 티스토리 블로그](#)에서 확인할 수 있습니다.
+**Flowchart 이미지**  
+![CI/CD Flowchart](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/rinninghi_cicd01.PNG)
+![CI/CD Flowchart 2](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/rinninghi_cicd02.PNG)
+**Flowchart 설명**  
+GitHub Actions와 AWS EC2를 사용하여 CI/CD를 관리하며, 자동 배포 및 테스트를 수행합니다. <br>
+자세한 과정은 제 블로그인 [신나 티스토리 블로그](https://siina.tistory.com/45)에서 확인할 수 있습니다.
 
 ---
 
