@@ -1,95 +1,108 @@
 # Running Hi FrontEnd
 <div align="center">
-<h2>[2024] RunningHi - frontend 🎮</h2>
-코드랩 AICC3기 1차 팀 프로젝트로 진행된 리액트 기반 웹 서비스 RunningHi의 Front 페이지입니다.<br> 사용자는 지도위에 마커를 등록해 러닝 코스를 만들고 다른사람들과 공유할 수 있습니다. 해당 서비스는 다음 프로젝트의 아이디어를 참고하여 제작하였습니다. Runnect[깃허브 링크:https://github.com/Runnect/Runnect-Android] 🍀
+<h2>[2024] RunningHi - Frontend 🎮</h2>
 </div>
 
+코드랩 AICC 3기 1차 팀 프로젝트로 진행된 리액트 기반 웹 서비스 RunningHi의 프론트엔드 페이지입니다. 다른 팀으로 부터 `Runnect`와 같은 서비스를 만들어달란 요청을 받았으며 이를 기반으로 기능을 구성했습니다. 사용자는 지도 위에 마커를 등록하여 러닝 코스를 만들고, 다른 사람들과 공유할 수 있는 기능을 제공합니다.<br>
+이 프로젝트는 [Runnect](https://github.com/Runnect/Runnect-Android) 프로젝트를 참고하여 제작되었습니다. <br>
+RunningHi 의 Frontend 가 궁금하다면?
+- **Backend Repository**: [RunningHi Backend](https://github.com/Noveled/runninghi-backend-cicd)
+
 ## 목차
-  - [개요](#개요) 
-  - [서비스 설명](#서비스-설명)
-  - [주요 기능 설명](#주요-기능-설명)
-  - [CI/CD FLOW CHART](#CI/CD-FLOW-CHART)
-  - [Error report](#Error-report)
-  - [레퍼런스](#레퍼런스)
+- [프로젝트 개요](#프로젝트-개요)
+- [기능 설명](#기능-설명)
+- [주요 기능 설명](#주요-기능-설명)
+- [CI/CD 플로우 차트](#ci-cd-플로우-차트)
+- [오류 보고](#오류-보고)
+- [레퍼런스](#레퍼런스)
 
-## 개요
-- 프로젝트 이름: RunningHi - frontend
-- 프로젝트 지속기간: 2024.08.20 - 2024.09.20
-- 개발 툴 및 언어: React & Javascript + PostgreSQL
-- 멤버: 02 팀 [김민식(팀장), 강민주, 손주현]
-- Demo Link : https://runningfront.siinat.com/
+---
 
-## 서비스 설명
-|![image](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|![image](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|
-|:---:|:---:|
-|매인 화면|코스 등록 화면|
+## 프로젝트 개요
+- **프로젝트 이름**: RunningHi - Frontend
+- **프로젝트 기간**: 2024.08.20 - 2024.09.20
+- **사용 기술**: `React` `Redux` `Javascript` `PostgreSQL` `Public API`
+- **팀 구성**: 김민식(팀장), 강민주, 손주현
 
-나만이 알고있는 일상속의 러닝 코스를 다른 사람들과 공유할 수 있는 서비스를 만들고자 했습니다.<br>
-- 나만의 코스를 등록 ⚔️<br>
-RunningHi에선 지도위에 코스를 그리고 설명을 등록할 수 있습니다. 관련있는 사진을 첨부하여 더 효과적으로 코스를 소개할 수 있고 다른사람들과 쉽게 공유할 수 있습니다. 
-- 다양한 코스를 검색 🎯<br>
-여러가지 카테고리별로 필터링하여 러닝 코스를 검색할 수 있습니다. 지역별 코스, 거리별 코스, 마라톤 코스 등 다양한 코스를 검색해보세요.
-- 주변 시설 검색 🏄🏻<br>
-러닝의 편의성을 높여주는 주변 시설들을 검색할 수 있습니다. 
-- 코스 보관함 👶<br>
-코스 보관함을 통해 내가 등록한 코스와 좋아요를 표시한 코스(추가 개발 예정)를 모아서 볼 수 있습니다.
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Noveled">
+        <img src="https://github.com/Noveled.png" width="100px;" alt="김민식"/><br />
+        <sub><b>김민식</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/mjk2024-dementia">
+        <img src="https://github.com/mjk2024-dementia.png" width="100px;" alt="강민주"/><br />
+        <sub><b>강민주</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/sonjuhyeon">
+        <img src="https://github.com/sonjuhyeon.png" width="100px;" alt="손주현"/><br />
+        <sub><b>손주현</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+- **Demo Link**: [RunningHi Frontend](https://runningfront.siinat.com/)
+
+---
+
+## 기능 설명
+RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공합니다:
+
+1. **사용자 인증**: 로그인 및 회원가입 기능을 통해 사용자가 서비스를 이용할 수 있습니다.
+2. **코스 관리**: 사용자는 지도 위에 마커를 등록하고, 등록된 코스를 수정하거나 삭제할 수 있습니다.
+3. **편의시설 검색 및 필터링**: 주변 편의시설을 지도에서 조회하고, 필터링 기능을 통해 원하는 시설을 검색할 수 있습니다.
+4. **상태 관리**: Redux를 통해 사용자 정보, 지도 API 데이터, 인증 상태 등을 전역적으로 관리합니다.
+
+---
 
 ## 주요 기능 설명
-- 코스 등록 및 수정 삭제
 
-|![image](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|![image](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|
+|![코스 등록 화면](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|![코스정보 수정 화면](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|
 |:---:|:---:|
-|매인 화면|코스 등록 화면|
+|**코스 등록 화면**|**코스정보 수정 화면**|
 
-코스 등록 : 지도에 마커를 표시하고 버튼을 누르면 정보 입력창이 나오며 정보를 모두 입력하고 전송 버튼을 클릭하면 코스 등록이 완료 됩니다. 마커를 추가로 등록 할 때마다 거리가 누적되며 경로가 표시됩니다. 사용자는 자신이 원하는 이미지를 함께 등록 할 수 있습니다.
+- **코스 등록**: 지도에 마커를 표시하고, 정보를 입력하여 러닝 코스를 등록할 수 있습니다. 사용자가 코스를 등록할 때, 마커를 추가할 때마다 경로가 누적되며 지도에 표시됩니다.
+- **코스 수정**: 등록한 코스를 수정할 수 있습니다. 기존 정보를 미리 보여주고 필요한 부분만 업데이트합니다.
+- **코스 삭제**: 등록된 코스를 삭제할 수 있으며, 삭제된 코스는 DB에서 검색되지 않지만 좋아요 등을 등록한 사용자는 확인이 가능합니다.
 
-코스 수정 : 자신이 등록한 코스의 경우 코스 수정이 가능합니다. 사용자가 수정 버튼을 누르면 기존에 입력되었던 값이 미리 입력된 화면이 나오며 약간의 정보를 수정하고 등록 버튼을 누르면 코스 정보가 업데이트 됩니다.
+**편의시설 검색 및 필터링**: 주변 편의시설을 지도에서 조회하고, 필터링 기능을 통해 원하는 시설을 검색할 수 있습니다.
+![네비게이션 바 애니메이션](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)
 
-코스 삭제 : 자신이 등록한 코스의 경우 코스 삭제가 가능합니다. 사용자가 삭제 버튼을 누르면 DB 상에서 visible 옵션이 false 로 변경되어 검색 등에선 노출되지 않지만, 이미 좋아요 등록을 해둔 경우 코스 확인이 가능합니다.
+- **버튼 클릭시 애니메이션** : 모바일기기 특성 상 호버 액션을 사용할 수 없어서 클릭 효과를 주기 위해 애니메이션을 추가하였습니다.
+|![네비게이션 바 애니메이션](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|![버튼 클릭 애니메이션](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|
+|:---:|:---:|
+|**네비게이션 바 애니메이션**|**버튼 클릭 애니메이션**|
 
-- 코스 검색
+---
 
-|Home|Forest|Store|Room|
-|---|---|---|---|
-|![image](https://user-images.githubusercontent.com/66003567/216816017-bfd18669-9f70-45c2-8561-bae648690602.png)|![image](https://user-images.githubusercontent.com/66003567/216815971-d8ed6ea8-1f92-45f8-9611-1cbe2b5e8db0.png)|![image](https://user-images.githubusercontent.com/66003567/216815991-88e0f4d6-3e5d-4c19-9eb9-97047b40c0d0.png)|![image](https://user-images.githubusercontent.com/66003567/216816002-4eca6510-4436-44f5-b949-347e75129ada.png)|
-|옥수수 농사 가능|슈팅, 두더지 잡기, 낚시 미니게임 입장 가능|물품 판매 및 구매 가능|게임 저장 가능|
+## CI/CD 플로우 차트
 
-카테고리별로 필터링하여 코스 검색이 가능합니다. 각 카테고리에 대한 설명은 아래와 같습니다.
+|![CI/CD Flowchart](https://github.com/Noveled/runninghi-backend-cicd/blob/main/docs/images/rinninghi_cicd01.PNG)|![CI/CD Flowchart 2](https://github.com/Noveled/runninghi-backend-cicd/blob/main/docs/images/rinninghi_cicd02.PNG)|
+|:---:|:---:|
+|**CI/CD Flowchart**|**CI/CD Flowchart 2**|
 
-a : aaa
+GitHub Actions와 AWS EC2를 사용하여 CI/CD를 관리하며, 자동 배포 및 테스트를 수행합니다. 자세한 과정은 [신나 티스토리 블로그](#)에서 확인할 수 있습니다.
 
-b : bbb
+---
 
-c : ccc
+## 오류 보고
 
-d : ddd
+### 해결 완료
+- **화면전환 시 맵 정보 초기화 현상**: 지도 정보를 Redux로 관리하여 화면 전환 시 지도가 다시 그려지지 않도록 수정하였습니다. 향후 리팩토링을 진행한다면 하나의 맵 위에 다른 컴포넌트를 덮어 그리는 식으로 수정할 예정입니다.
+- **코스 수정 시 마커 제거 불가 문제**: 메모리 상에서는 마커가 제거되었지만, 실제 맵 상에서 이미지가 남아있는 문제가 지속되었습니다.
 
-- 마이 페이지
+### 해결 미완료
+- **마커 간 거리 계산 문제**: 카카오 지도 API Docs를 참고하여 수정 가능성을 확인하였으나, 우선순위에서 밀려 프로젝트 말기까지 해결되지 않았습니다.
+- **EC2 인스턴스 재부팅 시 Public IP 변경 문제**: Elastic IP 할당 방식을 고려하여 문제를 해결할 예정입니다.
 
-|베이킹|슈팅|두더지 잡기|낚시|
-|---|---|---|---|
-|![image](https://user-images.githubusercontent.com/66003567/216816081-cf4a29c6-72f3-4b75-b01d-3dd6e3faabc5.png)|![image](https://user-images.githubusercontent.com/66003567/216816088-cd83d20a-e023-4af2-b406-98197af5ff35.png)|![image](https://user-images.githubusercontent.com/66003567/216816106-5a97f26e-565b-43a6-bfab-d22e36745f80.png)|![image](https://user-images.githubusercontent.com/66003567/216816119-fb22c507-f6c4-49a3-b4f0-28ecaae94f6c.png)|
-|오븐 타이머 조절 성공시 빵 획득|나무 몬스터 제거시 코인 획득|일정 수 이상 두더지 잡기 성공시 코인 획득|찌를 올바른 위치에 멈추기 3회 성공시 선택한 난이도의 물고기 획득|
-
-마이페이지에선 사용자의 여러 상태를 확인할 수 있습니다. 로그아웃 버튼이 위치합니다.
-
-## CI/CD FLOW CHART
-- 코스 등록 및 수정 삭제
-플로우차트 이미지 영역
-플로우차트 설명 영역
-
-관련 설명 링크 연결 : 신나 티스토리 블로그 포스팅 필요
-
-## Error report
-- 해결 완료
-- 쿠키 저장 방식 : 화면 전환이 이루어지면 지도를 화면마다 다시 그리기 때문에 맵 정보를 리덕스를 이용해 관리할 필요가 있었음. {} 를 통해 여러가지 변수를 한번에 담으면 무수히 많은 경고 출력 확인. 따로 나누어 저장하여 해결. (향후 리팩토링 할때 맵을 백그라운드에 하나만 그리고 위에 다른 컴포넌트를 그리는 방식으로 고치는것도 고려중)
-- EC2 인스턴스 재부팅시 PublicIP 변경됨 : EC2 인스턴스를 재부팅하면 PublicIP가 변경되는 것을 확인. 이로 인해 연결했던 클라우드 프론트, https 등의 연결이 끊기는 것을 확인. 현재는 다시 연결해둔 상태지만 향후 편의를 위해 Elastic IP 할당 방식을 고려해야함.
-
-- 해결 미완료
-- 마커간 거리 계산 : 카카오 지도 API Docs 참고하면 수정 가능 (중요도가 낮아 밀리다 보니 프로젝트 말 까지 해결 불가하였음. 관련 Docs Link : )
-- 코스 수정 시 이미 등록되었던 마커 제거 불가 현상 : 메모리 상에선 마커가 제거 되었으나 마커 이미지가 맵에 남아있는 현상 발생 -> 이유를 모르겠음..
-
+---
 
 ## 레퍼런스
-런넥트 : (링크)
-참고한 블로그 : (링크)
+- **Runnect**: [링크](https://github.com/Runnect/Runnect-Android)
+- **React 이미지 업로드**: [링크](https://velog.io/@wns2252/React-%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%97%85%EB%A1%9C%EB%93%9C-%ED%95%98%EA%B8%B0)
