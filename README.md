@@ -1,11 +1,11 @@
 # Running Hi FrontEnd
 <div align="center">
-<h2>[2024] RunningHi - Frontend 🎮</h2>
+<h2>[2024] RunningHi - Frontend </h2>
 </div>
 
 코드랩 AICC 3기 1차 팀 프로젝트로 진행된 리액트 기반 웹 서비스 RunningHi의 프론트엔드 페이지입니다. 다른 팀으로 부터 `Runnect`와 같은 서비스를 만들어달란 요청을 받았으며 이를 기반으로 기능을 구성했습니다. 사용자는 지도 위에 마커를 등록하여 러닝 코스를 만들고, 다른 사람들과 공유할 수 있는 기능을 제공합니다.<br>
 이 프로젝트는 [Runnect](https://github.com/Runnect/Runnect-Android) 프로젝트를 참고하여 제작되었습니다. <br>
-RunningHi 의 Frontend 가 궁금하다면?
+RunningHi의 Backend가 궁금하다면?
 - **Backend Repository**: [RunningHi Backend](https://github.com/Noveled/runninghi-backend-cicd)
 
 ## 목차
@@ -19,6 +19,7 @@ RunningHi 의 Frontend 가 궁금하다면?
 ---
 
 ## 프로젝트 개요
+![Demo 영상](./docs/images/demo.mp4)
 - **프로젝트 이름**: RunningHi - Frontend
 - **프로젝트 기간**: 2024.08.20 - 2024.09.20
 - **사용 기술**: `React` `Redux` `Javascript` `PostgreSQL` `Public API`
@@ -48,7 +49,7 @@ RunningHi 의 Frontend 가 궁금하다면?
 </table>
 
 - **Demo Link**: [RunningHi Frontend](https://runningfront.siinat.com/)
-
+**아이폰 12 pro 디바이스 화면을 기준으로 제작되었습니다. 크롬 설정창을 이용해 설정을 바꿔주세요!**
 ---
 
 ## 기능 설명
@@ -63,7 +64,7 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 
 ## 주요 기능 설명
 
-|![코스 등록 화면](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|![코스정보 수정 화면](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|
+|![코스 등록 화면](./docs/images/postCourse.mp4)|![코스정보 수정 화면](./docs/images/editCourse.mp4)|
 |:---:|:---:|
 |**코스 등록 화면**|**코스정보 수정 화면**|
 
@@ -72,10 +73,10 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 - **코스 삭제**: 등록된 코스를 삭제할 수 있으며, 삭제된 코스는 DB에서 검색되지 않지만 좋아요 등을 등록한 사용자는 확인이 가능합니다.
 
 **편의시설 검색 및 필터링**: 주변 편의시설을 지도에서 조회하고, 필터링 기능을 통해 원하는 시설을 검색할 수 있습니다.
-![네비게이션 바 애니메이션](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)
+![네비게이션 바 애니메이션](./docs/images/facilCate.mp4)
 
 - **버튼 클릭시 애니메이션** : 모바일기기 특성 상 호버 액션을 사용할 수 없어서 클릭 효과를 주기 위해 애니메이션을 추가하였습니다.
-|![네비게이션 바 애니메이션](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|![버튼 클릭 애니메이션](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/src/assets/images/Recommend_001.PNG)|
+|![네비게이션 바 애니메이션](./docs/images/navAnime.mp4)|![버튼 클릭 애니메이션](./docs/images/buttonAnime.mp4)|
 |:---:|:---:|
 |**네비게이션 바 애니메이션**|**버튼 클릭 애니메이션**|
 
@@ -83,7 +84,7 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 
 ## CI/CD 플로우 차트
 
-|![CI/CD Flowchart](https://github.com/Noveled/runninghi-backend-cicd/blob/main/docs/images/rinninghi_cicd01.PNG)|![CI/CD Flowchart 2](https://github.com/Noveled/runninghi-backend-cicd/blob/main/docs/images/rinninghi_cicd02.PNG)|
+|![CI/CD Flowchart](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/rinninghi_cicd01.PNG)|![CI/CD Flowchart 2](https://github.com/Noveled/runninghi-frontend-cicd/blob/main/docs/images/rinninghi_cicd02.PNG)|
 |:---:|:---:|
 |**CI/CD Flowchart**|**CI/CD Flowchart 2**|
 
