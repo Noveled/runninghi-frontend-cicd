@@ -64,8 +64,7 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 ---
 
 ## 주요 기능 설명
-
-|https://github.com/user-attachments/assets/56a57ca7-08c4-4c03-946d-18a4f052834b|https://github.com/user-attachments/assets/31a9302d-cf67-4f6c-86a4-9b6bdecf26c3|
+|![코스 등록 화면](https://github.com/user-attachments/assets/56a57ca7-08c4-4c03-946d-18a4f052834b)|![코스정보 수정 화면](https://github.com/user-attachments/assets/31a9302d-cf67-4f6c-86a4-9b6bdecf26c3)|
 |:---:|:---:|
 |**코스 등록 화면**|**코스정보 수정 화면**|
 
