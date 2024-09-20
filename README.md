@@ -68,10 +68,10 @@ RunningHi 프론트엔드에서는 다음과 같은 주요 기능들을 제공�
 ---
 
 ## 주요 기능 설명
-**코스 등록 화면**
+## 코스 등록 화면
 https://github.com/user-attachments/assets/56a57ca7-08c4-4c03-946d-18a4f052834b
 
-**코스정보 수정 화면**
+## 코스정보 수정 화면
 https://github.com/user-attachments/assets/31a9302d-cf67-4f6c-86a4-9b6bdecf26c3
 
 - **코스 등록**: 지도에 마커를 표시하고, 정보를 입력하여 러닝 코스를 등록할 수 있습니다. 사용자가 코스를 등록할 때, 마커를 추가할 때마다 경로가 누적되며 지도에 표시됩니다.
@@ -84,11 +84,12 @@ https://github.com/user-attachments/assets/be17ebb1-8e54-4bc5-8fc6-de62580d6cfb
 주변 편의시설을 지도에서 조회하고, 필터링 기능을 통해 원하는 시설을 검색할 수 있습니다.
 
 - **버튼 클릭시 애니메이션** : 모바일기기 특성 상 호버 액션을 사용할 수 없어서 클릭 효과를 주기 위해 애니메이션을 추가하였습니다.
-**네비게이션 바 애니메이션**
+## 네비게이션 바 애니메이션
 https://github.com/user-attachments/assets/1c1fb456-e88e-4f08-831d-68568ceed4bc
 
-**버튼 클릭 애니메이션**
+## 버튼 클릭 애니메이션
 https://github.com/user-attachments/assets/92d2dfa7-369e-486b-9f4a-9f37a8231939
+
 
 ---
 
