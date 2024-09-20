@@ -19,7 +19,7 @@ RunningHi의 Backend가 궁금하다면?
 ---
 
 ## 프로젝트 개요
-![Demo 영상](https://github.com/user-attachments/assets/b0589d2b-3431-4736-846e-cd77446f92f5)
+https://github.com/user-attachments/assets/b0589d2b-3431-4736-846e-cd77446f92f5
 
 - **프로젝트 이름**: RunningHi - Frontend
 - **프로젝트 기간**: 2024.08.20 - 2024.09.20
